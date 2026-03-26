@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<!-- atributo para mudar a cor do fundo -->
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Meu Portfólio</title>
+  <!-- icon browser tab -->
+  <link rel="shortcut icon" href="../Imagens/icon.png" type="image/x-icon" />
+  <!-- CSS do BOOTSTRAP  -  este comando do css(bootstrap) deve ser sempre por 
+   cima do link do css, porque a biblioteca é um arranque -->
+  <link href="../bootstrap.css" rel="stylesheet">
+  <!-- O nosso CSS -->
+  <link rel="stylesheet" href="../style.css" />
+  <!-- defer - carrega o js ao mesmo tempo que o html,
+     caso não tivessemos, tinhamos de colocar isto no fim -->
+  <script src="../script.js" defer></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+
+
+</head>
+
+
+<body>
+  <!-- NavBar do Bootstrap -->
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Menu</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Quem sou eu</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Lista</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contacto</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Personalizar Portfólio</a>
+          </li>
+      </div>
+    </div>
+  </nav>
+
+  <!-- criamos uma div para dar um espaçamento à esquerda e à direita na minha página, 
+   nisto não queremos que a nav fique com esse espaçamento (container bg-info -> bg-info - background - e info é uma cor azulada)-->
+  <!-- mt: m - margem - t top , o container dá umas margens-->
+  <section class="container mt-5">
+
+    <!-- botões -->
+    <button id="MudarTema" type="button" class="btn btn-outline-primary">Mudar Tema</button>
+    <button id="TrocarImagem" type="button" class="btn btn-outline-secondary">Trocar Imagem</button>
+    <button id="AdicionarHobby" type="button" class="btn btn-outline-success">Adicionar Hobby</button>
+    <!-- botão de imagens de caes -->
+    <button id="dog-api">DogApi</button>
+    
+
+
+    <div class="row">
+      <h1>O Meu Portfólio</h1>
+    </div>
+
+    <!-- div para perfil -->
+    <div class="card mb-3" style="max-width: 600px;">
+      <div class="row g-0">
+        <div class="col-md-4">
+          <!-- imagem -->
+          <img src="../Imagens/minha_carole.jpg" class="img-fluid rounded-start" alt="...">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <!-- nome -->
+            <h5 class="card-title">Nome</h5>
+            <!-- frase de apresentação -->
+            <p class="card-text">Sou estudante de Programação Low Code...</p>
+            <p class="card-text"><small class="text-body-secondary">colocar quando este texto foi atualizado - Last
+                updated 3 mins ago</small></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- div para imagem principal -->
+    <div class="card mb-3" style="max-width: 600px;">
+    <div class="row">
+      <!-- a coluna ocupa 4 colunas em 12 possíveis -->
+      <!-- ele ocupa 10 colunas num ecra mais pequeno e 4 num ecra maior, breakpoint md -->
+      <div class="col">
+        <div class="card" style="width: 18rem;">
+          <!-- imagem -->
+          <img id="imgPrincipal" src="https://www.vetsobrerodas.pt/uploads/submenus/chegada-novo-cao-a-casa[1].jpg">
+        </div>
+      </div>
+      </div>
+
+      <!-- div para hobbies -->
+      <div class="card mb-3" style="max-width: 600px;">
+        <div class="row">
+          <!-- a coluna ocupa 4 colunas em 12 possíveis -->
+          <!-- ele ocupa 10 colunas num ecra mais pequeno e 4 num ecra maior, breakpoint md -->
+          <div class="col">
+            <h5>Lista de Hobbies</h5>
+            <ul id="listaHobby"></ul>
+          </div>
+        </div>
+
+
+        <!-- div para formulário -->
+        <div class="row">
+          <!-- criamos div. aqui para criar uma coluna/ col-2: estamos a dizer que na 1ª coluna ocupa o espaço de 2 -->
+          <div class="col">
+              <form>
+              <fieldset disabled>
+                <legend>Disabled fieldset example</legend>
+                <div class="mb-3">
+                  <label for="disabledTextInput" class="form-label">Disabled input</label>
+                  <input type="text" id="disabledTextInput" class="form-control" placeholder="Disabled input">
+                </div>
+                <div class="mb-3">
+                  <label for="disabledSelect" class="form-label">Disabled select menu</label>
+                  <select id="disabledSelect" class="form-select">
+                    <option>Disabled select</option>
+                  </select>
+                </div>
+                <div class="mb-3">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="disabledFieldsetCheck" disabled>
+                    <label class="form-check-label" for="disabledFieldsetCheck">
+                      Can’t check this
+                    </label>
+                  </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </fieldset>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <!-- div para API -->
+      <div class="card mb-3" style="max-width: 600px;">
+
+      <div class="row">
+        <h5>Inspiração</h5>
+        <!-- criamos div. aqui para criar uma coluna/ col-2: estamos a dizer que na 1ª coluna ocupa o espaço de 2 -->
+        <div id="imgRandom" class="col">
+        
+        </div>
+      </div>
+      </div>
+
+  </section>
+
+  <a href="#nav">Top</a>
+
+  </div>
+  <!-- copiamos este 2 link do site bootstrap -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
