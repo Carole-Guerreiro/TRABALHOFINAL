@@ -1,0 +1,13 @@
+
+ 
+/* media queries sempre no final do css
+por exemplo o menu e os botões vão desaparecer ao colocar para imprimir*/
+@media print {
+    #nav{
+    display: none;
+    button { display: none; }
+
+}
+
+
+/* experimentei modificar outras coisas, mas eram incompatíveis com o bootstraps*/

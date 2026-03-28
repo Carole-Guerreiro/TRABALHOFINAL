@@ -10,14 +10,13 @@
   <link rel="shortcut icon" href="../Imagens/icon.png" type="image/x-icon" />
   <!-- CSS do BOOTSTRAP  -  este comando do css(bootstrap) deve ser sempre por 
    cima do link do css, porque a biblioteca é um arranque -->
-  <link href="../bootstrap.css" rel="stylesheet">
-  <!-- O nosso CSS -->
-  <link rel="stylesheet" href="../style.css" />
+  <link href="../bootstrap/bootstrap.css" rel="stylesheet">
+  <!-- O CSS -->
+  <link rel="stylesheet" href="./style/style.css" />
   <!-- defer - carrega o js ao mesmo tempo que o html,
      caso não tivessemos, tinhamos de colocar isto no fim -->
-  <script src="../script.js" defer></script>
+  <script src="../script/script.js" defer></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
-
 
 </head>
 
@@ -26,7 +25,7 @@
   <!-- NavBar do Bootstrap -->
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">Menu</a>
+      <a class="navbar-brand" id="nav">Menu</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
         aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -34,16 +33,16 @@
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Quem sou eu</a>
+            <a class="nav-link active" aria-current="page" href="#cardPerfil">Quem sou eu</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Lista</a>
+            <a class="nav-link active" href="#listaHobby">Lista Hobbies</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Contacto</a>
+            <a class="nav-link active" href="#nameInput">Personalizar Portfólio</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Personalizar Portfólio</a>
+            <a class="nav-link active" href="#chuckNorris">Inspiração do dia</a>
           </li>
       </div>
     </div>
@@ -52,15 +51,15 @@
   <!-- criamos uma div para dar um espaçamento à esquerda e à direita na minha página, 
    nisto não queremos que a nav fique com esse espaçamento (container bg-info -> bg-info - background - e info é uma cor azulada)-->
   <!-- mt: m - margem - t top , o container dá umas margens-->
-  <section class="container mt-5">
+  <section class="container-fluid">
 
     <!-- botões -->
     <button id="MudarTema" type="button" class="btn btn-outline-primary">Mudar Tema</button>
-    <button id="TrocarImagem" type="button" class="btn btn-outline-secondary">Trocar Imagem</button>
-    <button id="AdicionarHobby" type="button" class="btn btn-outline-success">Adicionar Hobby</button>
-    <!-- botão de imagens de caes -->
-    <button id="dog-api" type="button" class="btn btn-outline-warning">Carregar Inspiração</button>
-    
+  
+    <!-- botão para mudar o background do body -->
+    <button id="randomColorBg" type="button" class="btn btn-outline-info">Cor Aleatória</button>
+    <!-- botão reset -->
+    <button id="resetBtn" type="button" class="btn btn-outline-danger">Reset</button>
 
 
     <div class="row">
@@ -68,98 +67,103 @@
     </div>
 
     <!-- div para perfil -->
-    <div class="card mb-3" style="max-width: 600px;">
+    <div id="cardPerfil" class="card mb-3 mx-auto">
       <div class="row g-0">
-        <div class="col-md-4">
+        <div class="col-md-2">
           <!-- imagem -->
-          <img src="Imagens/minha_carole.jpg" class="img-fluid rounded-start" alt="...">
+          <img id="imagemPerfil" src="./Imagens/caroleimg.png" class="img-fluid rounded-start" alt="...">
         </div>
-        <div class="col-md-8">
+        <div class="col-md-10">
           <div class="card-body">
             <!-- nome -->
-            <h5 class="card-title">Nome</h5>
+            <h5 id="NomePerfil" class="card-title">Carole Guerreiro</h5>
             <!-- frase de apresentação -->
-            <p class="card-text">Sou estudante de Programação Low Code...</p>
-            <p class="card-text"><small class="text-body-secondary">colocar quando este texto foi atualizado - Last
-                updated 3 mins ago</small></p>
+            <p id="FraseApresentacao" class="card-text"> O meu nome é <b>Carole</b> e sou uma mistura equilibrada de
+              responsabilidade com um leve talento para adiar
+              o despertador. <br> Gosto de aprender coisas novas, mas também sou profissional em dizer “só mais cinco
+              minutos” quando o despertador toca.</p>
           </div>
         </div>
       </div>
     </div>
 
 
+    <button id="TrocarImagem" type="button" class="btn btn-outline-secondary">Trocar Imagem</button>
     <!-- div para imagem principal -->
-    <div class="card mb-3" style="max-width: 600px;">
-    <div class="row">
-      <!-- a coluna ocupa 4 colunas em 12 possíveis -->
-      <!-- ele ocupa 10 colunas num ecra mais pequeno e 4 num ecra maior, breakpoint md -->
-      <div class="col">
-        <div class="card" style="width: 18rem;">
-          <!-- imagem -->
-          <img id="imgPrincipal" src="https://www.vetsobrerodas.pt/uploads/submenus/chegada-novo-cao-a-casa[1].jpg">
-        </div>
-      </div>
-      </div>
-
-      <!-- div para hobbies -->
-      <div class="card mb-3" style="max-width: 600px;">
-        <div class="row">
-          <!-- a coluna ocupa 4 colunas em 12 possíveis -->
-          <!-- ele ocupa 10 colunas num ecra mais pequeno e 4 num ecra maior, breakpoint md -->
-          <div class="col">
-            <h5>Lista de Hobbies</h5>
-            <ul id="listaHobby"></ul>
-          </div>
-        </div>
-
-
-        <!-- div para formulário -->
-        <div class="row">
-          <!-- criamos div. aqui para criar uma coluna/ col-2: estamos a dizer que na 1ª coluna ocupa o espaço de 2 -->
-          <div class="col">
-              <form>
-              <fieldset disabled>
-                <legend>Disabled fieldset example</legend>
-                <div class="mb-3">
-                  <label for="disabledTextInput" class="form-label">Disabled input</label>
-                  <input type="text" id="disabledTextInput" class="form-control" placeholder="Disabled input">
-                </div>
-                <div class="mb-3">
-                  <label for="disabledSelect" class="form-label">Disabled select menu</label>
-                  <select id="disabledSelect" class="form-select">
-                    <option>Disabled select</option>
-                  </select>
-                </div>
-                <div class="mb-3">
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="disabledFieldsetCheck" disabled>
-                    <label class="form-check-label" for="disabledFieldsetCheck">
-                      Can’t check this
-                    </label>
-                  </div>
-                </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
-              </fieldset>
-            </form>
-          </div>
-        </div>
-      </div>
-
-      <!-- div para API -->
-      <div class="card mb-3" style="max-width: 600px;">
-
+    <div class="card mb-3 mx-auto">
       <div class="row">
-        <h5>Inspiração</h5>
-        <!-- criamos div. aqui para criar uma coluna/ col-2: estamos a dizer que na 1ª coluna ocupa o espaço de 2 -->
-        <div id="imgRandom" class="col">
-        
+        <h4>Imagem Principal</h4>
+        <!-- a coluna ocupa 4 colunas em 12 possíveis -->
+        <!-- ele ocupa 10 colunas num ecra mais pequeno e 4 num ecra maior, breakpoint md -->
+        <div class="col">
+          <div class="card" style="width: 18rem;">
+            <!-- imagem -->
+            <img id="imgPrincipal" src="https://www.vetsobrerodas.pt/uploads/submenus/chegada-novo-cao-a-casa[1].jpg">
+          </div>
         </div>
       </div>
+    </div>
+
+    <button id="AdicionarHobby" type="button" class="btn btn-outline-success">Adicionar Hobby</button>
+    <!-- div para hobbies -->
+    <div class="card mb-3 mx-auto">
+      <div class="row">
+        <!-- a coluna ocupa 4 colunas em 12 possíveis -->
+        <!-- ele ocupa 10 colunas num ecra mais pequeno e 4 num ecra maior, breakpoint md -->
+        <div class="col">
+          <h4>Lista de Hobbies</h4>
+          <ul id="listaHobby"></ul>
+        </div>
       </div>
+    </div>
+
+    <!-- div para formulário -->
+    <div class="card mb-3 mx-auto">
+      <div class="row">
+        <div class="col">
+          <form>
+            <fieldset>
+              <legend>Personalizar Portfólio</legend>
+              <div class="mb-3">
+                <label for="nameInput" class="form-label">Nome:</label>
+                <input type="text" id="nameInput" name="nameInput" class="form-control"
+                  placeholder="Escreve o primeiro e último nome">
+              </div>
+              <div class="mb-3">
+                <label for="floatingTextarea" class="form-label">Frase de apresentação</label>
+                <textarea class="form-control" placeholder="Escreve um pouco sobre ti" name="floatingTextarea"
+                  id="floatingTextarea"></textarea>
+              </div>
+              <div class="mb-3">
+                <label for="foreground" class="form-label">Cor:</label>
+                <input type="color" id="foreground" name="foreground" value="#e66465" />
+              </div>
+              <div class="mb-3">
+                <label for="photoInput" class="form-label">Foto (URL):</label>
+                <input type="url" id="photoInput" name="photoInput" class="form-control"
+                  placeholder="Coloca o URL de uma foto">
+              </div>
+              <button id="SubmeterPortf" type="submit" class="btn btn-outline-danger">Atualizar Portfólio</button>
+            </fieldset>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <button id="norrisBtn" type="button" class="btn btn-outline-warning">Carregar Inspiração</button>
+    <!-- div para API -->
+    <div class="card mb-3 mx-auto">
+      <div class="row">
+        <h4>Inspiração do dia</h4>
+        <!-- criamos div. aqui para criar uma coluna/ col-2: estamos a dizer que na 1ª coluna ocupa o espaço de 2 -->
+        <p id="chuckNorris"></p>
+      </div>
+    </div>
+    </div>
 
   </section>
 
-  <a href="#nav">Top</a>
+  <a href="#nav">Topo da página</a>
 
   </div>
   <!-- copiamos este 2 link do site bootstrap -->
